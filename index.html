@@ -1305,7 +1305,7 @@
         console.log(result);
         $("#title-video").html(result?.title);
         $("#thumbnail-video").attr("src", result?.thumbnail);
-        $("#duration-video").html("Duration: " + result?.duration_string);
+        $("#duration-video").html("Duration: " + result?.duration);
         $("#loading-indicator").css("display", "none");
         // $("#audio-file-link").attr("href", result?.audio_file);
         $("#audio-file-link").attr("download", result?.audio_file);
