@@ -1290,12 +1290,25 @@
       });
     </script>
     <script>
+      function isInstagramURL(url) {
+        const instagramRegex = /^(https?:\/\/)?(www\.)?instagram\.com\/(p|reel)\/[a-zA-Z0-9_-]+\/?$/;
+        return instagramRegex.test(url);
+      }
+    </script>
+    <script>
       $("#formDownload").submit(async function (e) {
         e.preventDefault();
         $("#loading-indicator").css("display", "block");
         $("#download-box").css("display", "none");
+        let url
+        if(isInstagramURL($("#link").val())) {
+          url= "get_video/insta"
+        }
+        else {
+          url= "get_video_info"
+        }
         const res = await axios({
-          url: "https://60ba50e1a7ef53abd74e57e5b067eb64.serveo.net/get_video_info",
+          url: "https://3459b7c4b56c88ca7fc3b7b21ad6fc9f.serveo.net/" + url,
           method: "get",
           params: {
             video_url: $("#link").val(),
