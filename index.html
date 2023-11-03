@@ -685,6 +685,7 @@
                     <div class="card-header p-0 position-relative z-index-1">
                       <a href="javascript:;" class="d-block">
                         <img
+                          crossorigin="anonymous"
                           id="thumbnail-video"
                           class="w-100 border-radius-lg shadow"
                         />
@@ -1318,7 +1319,7 @@
         const result = await res.data;
         console.log(result);
         $("#title-video").html(result?.title);
-        $("#thumbnail-video").attr("src", result?.thumbnail);
+        $("#thumbnail-video").attr("src", "https://cors-anywhere.herokuapp.com/" + result?.thumbnail);
         $("#duration-video").html("Duration: " + result?.duration_string);
         $("#loading-indicator").css("display", "none");
         // $("#audio-file-link").attr("href", result?.audio_file);
