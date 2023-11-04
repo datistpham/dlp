@@ -685,6 +685,8 @@
                     <div class="card-header p-0 position-relative z-index-1">
                       <a href="javascript:;" class="d-block">
                         <img
+                          crossorigin="anonymous"
+                          referrerpolicy="no-referrer"
                           id="thumbnail-video"
                           class="w-100 border-radius-lg shadow"
                         />
@@ -1291,7 +1293,7 @@
     </script>
     <script>
       function isInstagramURL(url) {
-        const instagramRegex = /^(https?:\/\/)?(www\.)?instagram\.com\/(p|reels)\/[a-zA-Z0-9_-]+\/?$/;
+        const instagramRegex = /^(https?:\/\/)?(www\.)?instagram\.com\/(p|reels|reel)\/[a-zA-Z0-9_-]+\/?$/;
         return instagramRegex.test(url);
       }
     </script>
@@ -1323,13 +1325,7 @@
 
         }
         else {
-          if(result?.thumbnail.includes("i.ytimg.com")) {
-            $("#thumbnail-video").attr("src", result?.thumbnail?.split("/")?.slice(0, 5)?.join("/")?.toString() + "/hqdefault.jpg");
-          }
-          else {
-            $("#thumbnail-video").attr("src", result?.thumbnail);
-          
-          }
+          $("#thumbnail-video").attr("src", result?.thumbnail);
           
         }
         $("#duration-video").html("Duration: " + result?.duration_string);
