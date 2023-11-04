@@ -686,6 +686,7 @@
                       <a href="javascript:;" class="d-block">
                         <img
                           crossorigin="anonymous"
+                          referrerpolicy="no-referrer"
                           id="thumbnail-video"
                           class="w-100 border-radius-lg shadow"
                         />
@@ -1310,7 +1311,7 @@
           url= "get_video_info"
         }
         const res = await axios({
-          url: "https://e20705dbfff95aeea92639122466ff23.serveo.net/" + url,
+          url: "http://localhost:3000/" + url,
           method: "get",
           params: {
             video_url: $("#link").val(),
@@ -1319,7 +1320,7 @@
         const result = await res.data;
         console.log(result);
         $("#title-video").html(result?.title);
-        if(isInstagramURL$("#link").val()) {
+        if(isInstagramURL($("#link").val())) {
           $("#thumbnail-video").attr("src", "https://cors-anywhere.herokuapp.com/" + result?.thumbnail);
 
         }
