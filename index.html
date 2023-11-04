@@ -1293,7 +1293,7 @@
     </script>
     <script>
       function isInstagramURL(url) {
-        const instagramRegex = /^(https?:\/\/)?(www\.)?instagram\.com\/(p|reels|reel)\/[a-zA-Z0-9_-]+\/?$/;
+        const instagramRegex = /^(https?:\/\/)?(www\.)?instagram\.com\/(p|reel)\/[a-zA-Z0-9_-]+\/?$/;
         return instagramRegex.test(url);
       }
     </script>
@@ -1303,7 +1303,6 @@
         $("#loading-indicator").css("display", "block");
         $("#download-box").css("display", "none");
         let url
-        console.log(isInstagramURL($("#link").val()))
         if(isInstagramURL($("#link").val())) {
           url= "get_video/insta"
         }
