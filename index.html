@@ -1325,7 +1325,13 @@
 
         }
         else {
-          $("#thumbnail-video").attr("src", result?.thumbnail);
+          if(result?.thumbnail.includes("i.ytimg.com")) {
+            $("#thumbnail-video").attr("src", result?.thumbnail?.split("/")?.slice(0, 5)?.join("/")?.toString() + "/hqdefault.jpg");
+          }
+          else {
+            $("#thumbnail-video").attr("src", result?.thumbnail);
+          
+          }
           
         }
         $("#duration-video").html("Duration: " + result?.duration_string);
