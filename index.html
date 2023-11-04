@@ -1303,7 +1303,7 @@
         $("#loading-indicator").css("display", "block");
         $("#download-box").css("display", "none");
         let url
-        if(isInstagramURL($("#link").val())) {
+        if($("#link").val().includes("instagram")) {
           url= "get_video/insta"
         }
         else {
